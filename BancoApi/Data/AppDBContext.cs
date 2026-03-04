@@ -11,6 +11,7 @@ public class AppDBContext  : DbContext
     }
     
     public DbSet<Conta> Contas => Set<Conta>();
+    public DbSet<Transacao> Transacoes => Set<Transacao>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -22,6 +23,8 @@ public class AppDBContext  : DbContext
         modelBuilder.Entity<Transacao>(entity =>
         {
             entity.ToTable("Transacoes");
+            entity.Property(e => e.Tipo)
+                .HasConversion<string>();
         });
         
     }

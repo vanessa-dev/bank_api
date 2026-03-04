@@ -1,5 +1,4 @@
 using BancoApi.Entities;
-using BancoApi.Repositories;
 using BancoApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +6,7 @@ namespace BancoApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ContasController: ControllerBase
+public class ContasController : ControllerBase
 {
 
     private readonly IContaService _contaService;

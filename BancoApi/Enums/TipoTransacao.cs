@@ -1,6 +1,7 @@
 namespace BancoApi.Enums;
 
-public class TipoTransacao
+public enum TipoTransacao
 {
-    
+    credito,
+    debito
 }
