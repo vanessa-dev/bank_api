@@ -19,6 +19,11 @@ public class AppDBContext  : DbContext
             entity.ToTable("Contas");
         });
         
+        modelBuilder.Entity<Transacao>(entity =>
+        {
+            entity.ToTable("Transacoes");
+        });
+        
     }
 
 }
