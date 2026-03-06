@@ -1,4 +1,5 @@
 using BancoApi.Entities;
+using BancoApi.Requests;
 using BancoApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,14 +17,14 @@ public class TransacoesController : ControllerBase
     }
     
     [HttpGet("{idconta}")]
-    public async Task<ActionResult<List<Transacao>>> Get(int idconta)
+    public async Task<ActionResult<List<Transacao>>> Get(Guid idconta)
     {
         var transacaos = await _transacaoService.GetAll(idconta);
         return Ok(transacaos);
     }
     
     [HttpGet("{id}")]
-    public async Task<ActionResult<Transacao>> GetByID(int id)
+    public async Task<ActionResult<Transacao>> GetByID(Guid id)
     {
         var transacoes = await _transacaoService.GetByID(id);
         if (transacoes == null)
@@ -33,17 +34,11 @@ public class TransacoesController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<Transacao>> Post([FromBody] Transacao transacao)
+    public async Task<ActionResult<Transacao>> Post([FromBody] TransacaoRequest transacaoRequest)
     {
+        var transacao = transacaoRequest.ToEntity();
         await _transacaoService.Create(transacao);
         return CreatedAtAction(nameof(GetByID), new { id = transacao.Id }, transacao);
-    }
-    
-    [HttpPut("{id}")]
-    public async Task<ActionResult> Put(int id, [FromBody] Transacao transacao)
-    {
-        await _transacaoService.Update(transacao);
-        return NoContent();
     }
     
 }

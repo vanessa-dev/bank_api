@@ -11,12 +11,12 @@ public class TransacaoService : ITransacaoService
         _repository = repository;
     }
     
-    public async Task<IList<Transacao>> GetAll(int idconta)
+    public async Task<IList<Transacao>> GetAll(Guid idconta)
     {
         return await _repository.findAll(idconta);
     }
     
-    public async Task<Transacao> GetByID(int id)
+    public async Task<Transacao> GetByID(Guid id)
     {
         return await _repository.findById(id);
     }
@@ -25,14 +25,5 @@ public class TransacaoService : ITransacaoService
     {
         await _repository.createTransacao(transaco);
     }
-
-    public async Task Update(Transacao transacao)
-    {
-        await _repository.updateTransacao(transacao);
-    }
     
-    public async Task Delete(int id) 
-    {
-        await _repository.deleteTransacao(id);
-    }
 }

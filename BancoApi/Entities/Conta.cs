@@ -2,6 +2,11 @@ namespace BancoApi.Entities;
 
 public class Conta
 {
-    public int Id { get; set; }
+    public Conta()
+    {
+        Id = Guid.NewGuid();
+    }
+    
+    public Guid Id { get; set; }
     public string Nome { get; set; }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SjFG6X7QA58=",
+  "dgSpecHash": "K57UEfvm3nE=",
   "success": true,
   "projectFilePath": "/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/BancoApi.csproj",
   "expectedPackageFiles": [
+    "/home/vanessa/.nuget/packages/fluentvalidation/12.1.1/fluentvalidation.12.1.1.nupkg.sha512",
     "/home/vanessa/.nuget/packages/microsoft.aspnetcore.openapi/8.0.23/microsoft.aspnetcore.openapi.8.0.23.nupkg.sha512",
     "/home/vanessa/.nuget/packages/microsoft.entityframeworkcore/9.0.0/microsoft.entityframeworkcore.9.0.0.nupkg.sha512",
     "/home/vanessa/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.0/microsoft.entityframeworkcore.abstractions.9.0.0.nupkg.sha512",

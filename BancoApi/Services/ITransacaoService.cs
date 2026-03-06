@@ -4,9 +4,7 @@ namespace BancoApi.Services;
 
 public interface ITransacaoService
 {
-    public Task<IList<Transacao>> GetAll(int idconta);
-    public Task<Transacao> GetByID(int id);
+    public Task<IList<Transacao>> GetAll(Guid idconta);
+    public Task<Transacao> GetByID(Guid id);
     public Task Create(Transacao transacao);
-    public Task Update(Transacao transacao);
-    public Task Delete(int id);
 }

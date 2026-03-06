@@ -47,3 +47,4 @@
 /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
 /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
 /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/obj/Debug/net8.0/BancoApi.sourcelink.json
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/FluentValidation.dll

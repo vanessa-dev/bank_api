@@ -1,5 +1,6 @@
 using BancoApi.Data;
 using BancoApi.Entities;
+using BancoApi.Requests;
 using Microsoft.EntityFrameworkCore;
 
 namespace BancoApi.Repositories;
@@ -13,16 +14,18 @@ public class TransacaoRepository : ITransacaoRepository
         _dbContext = dbContext;
     }
     
-    public async Task<IList<Transacao>> findAll(int idconta)
+    public async Task<IList<Transacao>> findAll(Guid idconta)
     {
         var context =  await _dbContext.Transacoes
-            .Where(t => t.IdConta == idconta)
-            .ToListAsync();;
+            .Where(t => t.IdContaOrigem == idconta
+                        || t.IdContaDestino == idconta)
+            .OrderByDescending(t => t.Data)
+            .ToListAsync();
         
         return context;
     }
 
-    public async Task<Transacao> findById(int id)
+    public async Task<Transacao> findById(Guid id)
     {
         var context = await _dbContext.Transacoes.FindAsync(id);
         return context;
@@ -33,21 +36,5 @@ public class TransacaoRepository : ITransacaoRepository
         await _dbContext.Transacoes.AddAsync(transacao);
         await _dbContext.SaveChangesAsync();
         
-    }
-
-    public async Task updateTransacao(Transacao transacao)
-    {
-        _dbContext.Transacoes.Update(transacao);
-        await _dbContext.SaveChangesAsync();
-    }
-
-    public async Task deleteTransacao(int id)
-    {
-        var context = await _dbContext.Transacoes.FindAsync(id);
-        if (context != null)
-        {
-            _dbContext.Transacoes.Remove(context);
-            await _dbContext.SaveChangesAsync();
-        }
     }
 }

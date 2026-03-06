@@ -4,10 +4,18 @@ namespace BancoApi.Entities;
 
 public class Transacao
 {
-    public int Id { get; set; }
+
+    public Transacao()
+    {
+        Id = Guid.NewGuid();
+    }
+    
+    public Guid Id { get; set; }
     public string Descricao { get; set; }
-    public DateTime Data { get; set; }
+    public DateTime Data { get; set; } 
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public TipoTransacao Tipo { get; set; }
     public decimal Valor { get; set; }
-    public int IdConta { get; set; }
+    public Guid IdContaDestino { get; set; }
+    public Guid IdContaOrigem { get; set; }
 }

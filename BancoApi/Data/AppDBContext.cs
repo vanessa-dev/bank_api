@@ -18,13 +18,19 @@ public class AppDBContext  : DbContext
         modelBuilder.Entity<Conta>(entity =>
         {
             entity.ToTable("Contas");
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+            .HasColumnType("binary(16)")
+            .HasConversion(
+                v => v.ToByteArray(),
+                v => new Guid(v)
+            );
         });
         
         modelBuilder.Entity<Transacao>(entity =>
         {
             entity.ToTable("Transacoes");
-            entity.Property(e => e.Tipo)
-                .HasConversion<string>();
         });
         
     }
