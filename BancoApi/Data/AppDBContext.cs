@@ -12,6 +12,7 @@ public class AppDBContext  : DbContext
     
     public DbSet<Conta> Contas => Set<Conta>();
     public DbSet<Transacao> Transacoes => Set<Transacao>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -31,6 +32,23 @@ public class AppDBContext  : DbContext
         modelBuilder.Entity<Transacao>(entity =>
         {
             entity.ToTable("Transacoes");
+            entity.Property(e => e.Id)
+                .HasColumnType("binary(16)")
+                .HasConversion(
+                    v => v.ToByteArray(),
+                    v => new Guid(v)
+                );
+        });
+        
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.ToTable("Users");
+            entity.Property(e => e.Id)
+                .HasColumnType("binary(16)")
+                .HasConversion(
+                    v => v.ToByteArray(),
+                    v => new Guid(v)
+                );
         });
         
     }

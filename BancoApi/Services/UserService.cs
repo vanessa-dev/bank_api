@@ -1,0 +1,69 @@
+using BancoApi.Entities;
+using BancoApi.Repositories;
+using Microsoft.AspNetCore.Identity;
+
+namespace BancoApi.Services;
+
+public class UserService : IUserService
+{
+    private readonly IUserRepository _repository;
+    private readonly IPasswordHasher<User> _passwordHasher;
+
+    public UserService(IUserRepository repository, IPasswordHasher<User> passwordHasher)
+    {
+        _repository = repository;
+        _passwordHasher = passwordHasher;
+    }
+    
+    public async Task<IList<User>> GetAll()
+    {
+        return await _repository.findAll();
+    }
+    
+    public async Task<User> GetByID(Guid id)
+    {
+        return await _repository.findById(id);
+    }
+
+    public async Task Create(User User)
+    {
+        
+        var userExist = await _repository.FindByEmailAsync(User.Email);
+        
+        if (userExist != null)
+            throw new Exception("Erro ao cadastrar usuário");
+
+        var user = new User
+        {
+            Email = User.Email,
+            Password = User.Password,
+        };
+        
+        user.Password = _passwordHasher.HashPassword(user, user.Password);
+        await _repository.createUser(user);
+    }
+
+    public async Task Update(User User)
+    {
+        await _repository.updateUser(User);
+    }
+    
+    public async Task Delete(Guid id) 
+    {
+        await _repository.deleteUser(id);
+    }
+
+    public async Task<User?> Login(string email, string password)
+    {
+        var userExist = await _repository.FindByEmailAsync(email);
+        
+        if (userExist != null)
+            throw new Exception("Erro ao autenticar o usuario.");
+        
+        var result = _passwordHasher.VerifyHashedPassword(userExist, userExist.Password, password);
+        if (result == PasswordVerificationResult.Failed)
+            return null;
+        
+        return userExist;
+    }
+}

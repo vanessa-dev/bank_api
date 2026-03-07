@@ -48,3 +48,16 @@
 /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
 /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/obj/Debug/net8.0/BancoApi.sourcelink.json
 /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/FluentValidation.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
