@@ -1,6 +1,6 @@
 namespace BancoApi.Requests;
 
-public class ContaRequest
+public class AccountRequest
 {
     
 }

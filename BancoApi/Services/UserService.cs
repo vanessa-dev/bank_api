@@ -17,12 +17,12 @@ public class UserService : IUserService
     
     public async Task<IList<User>> GetAll()
     {
-        return await _repository.findAll();
+        return await _repository.FindAllAsync();
     }
     
     public async Task<User> GetByID(Guid id)
     {
-        return await _repository.findById(id);
+        return await _repository.FindByIdAsync(id);
     }
 
     public async Task Create(User User)
@@ -40,17 +40,17 @@ public class UserService : IUserService
         };
         
         user.Password = _passwordHasher.HashPassword(user, user.Password);
-        await _repository.createUser(user);
+        await _repository.CreateAsync(user);
     }
 
     public async Task Update(User User)
     {
-        await _repository.updateUser(User);
+        await _repository.UpdateAsync(User);
     }
     
     public async Task Delete(Guid id) 
     {
-        await _repository.deleteUser(id);
+        await _repository.DeleteAsync(id);
     }
 
     public async Task<User?> Login(string email, string password)

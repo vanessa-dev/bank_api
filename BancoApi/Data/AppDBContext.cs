@@ -10,13 +10,13 @@ public class AppDBContext  : DbContext
         
     }
     
-    public DbSet<Conta> Contas => Set<Conta>();
-    public DbSet<Transacao> Transacoes => Set<Transacao>();
+    public DbSet<Account> Contas => Set<Account>();
+    public DbSet<Transaction> Transacoes => Set<Transaction>();
     public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Conta>(entity =>
+        modelBuilder.Entity<Account>(entity =>
         {
             entity.ToTable("Contas");
             entity.HasKey(e => e.Id);
@@ -29,7 +29,7 @@ public class AppDBContext  : DbContext
             );
         });
         
-        modelBuilder.Entity<Transacao>(entity =>
+        modelBuilder.Entity<Transaction>(entity =>
         {
             entity.ToTable("Transacoes");
             entity.Property(e => e.Id)

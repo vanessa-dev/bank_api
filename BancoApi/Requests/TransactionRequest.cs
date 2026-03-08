@@ -3,18 +3,18 @@ using BancoApi.Enums;
 
 namespace BancoApi.Requests;
 
-public class TransacaoRequest
+public class TransactionRequest
 {
     public string Descricao { get; set; }
     public DateTime Data { get; set; } 
-    public TipoTransacao Tipo { get; set; }
+    public TransactionType Tipo { get; set; }
     public decimal Valor { get; set; }
     public Guid IdContaDestino { get; set; }
     public Guid IdContaOrigem { get; set; }
 
-    public Transacao ToEntity()
+    public Transaction ToEntity()
     {
-        return new Transacao
+        return new Transaction
         {
             Valor = Valor,
             Descricao = Descricao,

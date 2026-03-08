@@ -13,14 +13,14 @@ public class UserRepository : IUserRepository
         _dbContext = dbContext;
     }
     
-    public async Task<IList<User>> findAll()
+    public async Task<IList<User>> FindAllAsync()
     {
         var context = await _dbContext.Users.ToListAsync();
         
         return context;
     }
 
-    public async Task<User> findById(Guid id)
+    public async Task<User> FindByIdAsync(Guid id)
     {
         var context = await _dbContext.Users.FindAsync(id);
         return context;
@@ -32,21 +32,21 @@ public class UserRepository : IUserRepository
             .FirstOrDefaultAsync(u => u.Email == email);
     }
 
-    public async Task createUser(User User)
+    public async Task CreateAsync(User User)
     {
         await _dbContext.Users.AddAsync(User);
         await _dbContext.SaveChangesAsync();
         
     }
 
-    public async Task updateUser(User User)
+    public async Task UpdateAsync(User User)
     {
         _dbContext.Users.Update(User);
         await _dbContext.SaveChangesAsync();
         
     }
 
-    public async Task deleteUser(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         var context = await _dbContext.Users.FindAsync(id);
         if (context != null)

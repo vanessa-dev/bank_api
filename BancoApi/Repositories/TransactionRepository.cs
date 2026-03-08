@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BancoApi.Repositories;
 
-public class TransacaoRepository : ITransacaoRepository
+public class TransactionRepository : ITransactionRepository
 {
     private readonly AppDBContext _dbContext;
 
-    public TransacaoRepository(AppDBContext dbContext)
+    public TransactionRepository(AppDBContext dbContext)
     {
         _dbContext = dbContext;
     }
     
-    public async Task<IList<Transacao>> findAll(Guid idconta)
+    public async Task<IList<Transaction>> FindAllAsync(Guid idconta)
     {
         var context =  await _dbContext.Transacoes
             .Where(t => t.IdContaOrigem == idconta
@@ -25,15 +25,15 @@ public class TransacaoRepository : ITransacaoRepository
         return context;
     }
 
-    public async Task<Transacao> findById(Guid id)
+    public async Task<Transaction> FindByIdAsync(Guid id)
     {
         var context = await _dbContext.Transacoes.FindAsync(id);
         return context;
     }
 
-    public async Task createTransacao(Transacao transacao)
+    public async Task CreateAsync(Transaction transaction)
     {
-        await _dbContext.Transacoes.AddAsync(transacao);
+        await _dbContext.Transacoes.AddAsync(transaction);
         await _dbContext.SaveChangesAsync();
         
     }

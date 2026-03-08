@@ -5,43 +5,43 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BancoApi.Repositories;
 
-public class ContaRepository : IContaRepository
+public class AccountRepository : IAccountRepository
 {
     private readonly AppDBContext _dbContext;
 
-    public ContaRepository(AppDBContext dbContext)
+    public AccountRepository(AppDBContext dbContext)
     {
         _dbContext = dbContext;
     }
     
-    public async Task<IList<Conta>> findAll()
+    public async Task<IList<Account>> FindAllAsync()
     {
         var context = await _dbContext.Contas.ToListAsync();
         
         return context;
     }
 
-    public async Task<Conta> findById(int id)
+    public async Task<Account> FindByIdAsync(Guid id)
     {
         var context = await _dbContext.Contas.FindAsync(id);
         return context;
     }
 
-    public async Task createConta(Conta conta)
+    public async Task CreateAsync(Account account)
     {
-        await _dbContext.Contas.AddAsync(conta);
+        await _dbContext.Contas.AddAsync(account);
         await _dbContext.SaveChangesAsync();
         
     }
 
-    public async Task updateConta(Conta conta)
+    public async Task UpdateAsync(Account account)
     {
-        _dbContext.Contas.Update(conta);
+        _dbContext.Contas.Update(account);
         await _dbContext.SaveChangesAsync();
         
     }
 
-    public async Task deleteConta(int id)
+    public async Task DeleteAsync(Guid id)
     {
         var context = await _dbContext.Contas.FindAsync(id);
         if (context != null)
