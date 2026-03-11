@@ -8,7 +8,7 @@ namespace BancoApi.Controllers;
 
 [ApiController, Route("api/auth")]
 public class AuthController(
-    UserService _userService,
+    IUserService _userService,
     TokenService _tokenService) : ControllerBase
 {
     [HttpPost("login")]

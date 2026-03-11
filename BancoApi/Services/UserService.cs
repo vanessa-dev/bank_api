@@ -57,7 +57,7 @@ public class UserService : IUserService
     {
         var userExist = await _repository.FindByEmailAsync(email);
         
-        if (userExist != null)
+        if (userExist == null)
             throw new Exception("Erro ao autenticar o usuario.");
         
         var result = _passwordHasher.VerifyHashedPassword(userExist, userExist.Password, password);
