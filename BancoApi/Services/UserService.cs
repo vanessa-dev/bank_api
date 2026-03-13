@@ -33,13 +33,10 @@ public class UserService : IUserService
         if (userExist != null)
             throw new Exception("Erro ao cadastrar usuário");
 
-        var user = new User
-        {
-            Email = User.Email,
-            Password = User.Password,
-        };
+        var user = new User(User.Email, User.Password, User.Name);
         
         user.Password = _passwordHasher.HashPassword(user, user.Password);
+        user.Validate();
         await _repository.CreateAsync(user);
     }
 

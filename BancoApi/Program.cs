@@ -1,6 +1,7 @@
 using System.Text;
 using BancoApi.Data;
 using BancoApi.Entities;
+using BancoApi.Filters;
 using BancoApi.Repositories;
 using BancoApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -49,7 +50,8 @@ builder.Services.AddAuthorization();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+    options.Filters.Add<DomainExceptionFilter>());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
