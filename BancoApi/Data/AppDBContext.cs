@@ -13,6 +13,7 @@ public class AppDBContext  : DbContext
     public DbSet<Account> Contas => Set<Account>();
     public DbSet<Transaction> Transacoes => Set<Transaction>();
     public DbSet<User> Users => Set<User>();
+    public DbSet<Client> Clients => Set<Client>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -43,6 +44,17 @@ public class AppDBContext  : DbContext
         modelBuilder.Entity<User>(entity =>
         {
             entity.ToTable("Users");
+            entity.Property(e => e.Id)
+                .HasColumnType("binary(16)")
+                .HasConversion(
+                    v => v.ToByteArray(),
+                    v => new Guid(v)
+                );
+        });
+        
+        modelBuilder.Entity<Client>(entity =>
+        {
+            entity.ToTable("Clients");
             entity.Property(e => e.Id)
                 .HasColumnType("binary(16)")
                 .HasConversion(
