@@ -1,4 +1,5 @@
 using BancoApi.Entities;
+using BancoApi.Exceptions;
 using BancoApi.Repositories;
 using Microsoft.AspNetCore.Identity;
 

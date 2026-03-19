@@ -21,9 +21,9 @@ public class UserValidator : AbstractValidator<User>
 
         RuleFor(entity => entity.Email)
             .NotEmpty()
-            .WithMessage("name is required")
+            .WithMessage("email is required")
             .NotNull()
-            .WithMessage("name is required")
+            .WithMessage("email is required")
             .Matches(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
             .WithMessage("email is invalid");
 

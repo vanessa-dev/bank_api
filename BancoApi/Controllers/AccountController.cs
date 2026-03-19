@@ -1,11 +1,12 @@
 using BancoApi.Entities;
+using BancoApi.Requests;
 using BancoApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BancoApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/account")]
 public class AccountController : ControllerBase
 {
 
@@ -33,16 +34,18 @@ public class AccountController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Account>> Post([FromBody] Account account)
+    public async Task<ActionResult<Account>> Post([FromBody] AccountRequest accountRequest)
     {
+        var account = accountRequest.ToEntity();
         await _accountService.Create(account);
         return CreatedAtAction(nameof(GetByID), new { id = account.Id }, account);
     }
     
     [HttpPut("{id}")]
-    public async Task<ActionResult> Put(Guid id, [FromBody] Account accountRequest)
+    public async Task<ActionResult> Put(Guid id, [FromBody] AccountRequest accountRequest)
     {
-        await _accountService.Update(accountRequest);
+        var account = accountRequest.ToEntity();
+        await _accountService.Update(account);
         return NoContent();
     }
     

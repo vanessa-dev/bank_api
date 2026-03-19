@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BancoApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/user")]
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BancoApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/transaction")]
 public class TransactionController : ControllerBase
 {
     private readonly ITransactionService _transactionService;
