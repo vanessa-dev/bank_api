@@ -5,12 +5,20 @@ namespace BancoApi.Entities;
 
 public class Account : BaseEntity
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Nome { get; set; }
+    public Account()
+    {
+        Id = Guid.NewGuid();
+    }
+
+    public string Nome { get; set; } = string.Empty;
+    public string Numero { get; set; } = string.Empty;
     public decimal Saldo  { get; set; }
+    public Guid ClientId { get; set; }
     
     public override bool Validate()
     {
+        _errors.Clear();
+
         var validator = new AccountValidator();
         var validation = validator.Validate(this);
 

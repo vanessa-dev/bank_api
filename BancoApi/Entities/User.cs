@@ -1,7 +1,6 @@
 using BancoApi.Enums;
 using BancoApi.Exceptions;
 using BancoApi.Validators;
-using Microsoft.AspNetCore.Identity;
 
 namespace BancoApi.Entities;
 
@@ -14,17 +13,18 @@ public class User : BaseEntity
         Email = email;
         Password = password;
         Name = name;
-        _errors = new List<string>();
     }
     
     public Status Status { get; set; } = Status.Active;
-    public string Password { get; set; }
-    public string Email { get; set; }
+    public string Password { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
     public Role Role { get; set; } = Role.Client;
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     public override bool Validate()
     {
+        _errors.Clear();
+
         var validator = new UserValidator();
         var validation = validator.Validate(this);
 

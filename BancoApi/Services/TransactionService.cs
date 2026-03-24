@@ -26,10 +26,19 @@ public class TransactionService : ITransactionService
 
     public async Task Create(Transaction transaco)
     {
-        var fromAccount = await _accountRepository.FindByIdAsync(transaco.IdContaOrigem);
-        var toAccount = await _accountRepository.FindByIdAsync(transaco.IdContaDestino); 
+        Account? fromAccount = null;
+        Account? toAccount = null;
+
+        if (transaco.IdContaOrigem.HasValue)
+            fromAccount = await _accountRepository.FindByIdAsync(transaco.IdContaOrigem.Value);
+
+        if (transaco.IdContaDestino.HasValue)
+            toAccount = await _accountRepository.FindByIdAsync(transaco.IdContaDestino.Value);
         
-        if (fromAccount == null || toAccount == null)
+        if (transaco.IdContaOrigem.HasValue && fromAccount == null)
+            throw new Exception("Account not found");
+
+        if (transaco.IdContaDestino.HasValue && toAccount == null)
             throw new Exception("Account not found");
 
         await _repository.CreateAsync(transaco);
