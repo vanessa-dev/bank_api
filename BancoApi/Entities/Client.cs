@@ -12,7 +12,7 @@ public class Client : BaseEntity
 
     public string Nome { get; set; } = string.Empty;
     public string Documento { get; set; } = string.Empty;
-    public Guid? UserId { get; set; }
+    public Guid?  UserId { get; set; }
 
     public override bool Validate()
     {

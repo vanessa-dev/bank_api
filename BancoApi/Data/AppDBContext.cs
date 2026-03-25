@@ -23,11 +23,18 @@ public class AppDBContext  : DbContext
             entity.HasKey(e => e.Id);
 
             entity.Property(e => e.Id)
-            .HasColumnType("binary(16)")
-            .HasConversion(
-                v => v.ToByteArray(),
-                v => new Guid(v)
-            );
+                .HasColumnType("binary(16)")
+                .HasConversion(
+                    v => v.ToByteArray(),
+                    v => new Guid(v)
+                );
+            
+            entity.Property(e => e.ClientId)
+                .HasColumnType("binary(16)")
+                .HasConversion(
+                    v => v.ToByteArray(),
+                    v => new Guid(v)
+                );
         });
         
         modelBuilder.Entity<Transaction>(entity =>
