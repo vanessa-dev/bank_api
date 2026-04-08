@@ -1,0 +1,209 @@
+2026-04-07 09:24:33.661 -03:00 [INF] User profile is available. Using '/home/vanessa/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-07 09:24:34.011 -03:00 [INF] Now listening on: http://localhost:5209
+2026-04-07 09:24:34.013 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-07 09:24:34.013 -03:00 [INF] Hosting environment: Development
+2026-04-07 09:24:34.014 -03:00 [INF] Content root path: /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi
+2026-04-07 09:24:48.503 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/swagger - null null
+2026-04-07 09:24:48.561 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/swagger - 301 0 null 59.2232ms
+2026-04-07 09:24:48.576 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/swagger/index.html - null null
+2026-04-07 09:24:48.680 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/swagger/index.html - 200 null text/html;charset=utf-8 105.037ms
+2026-04-07 09:24:48.819 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/swagger/swagger-ui.css - null null
+2026-04-07 09:24:48.819 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/swagger/swagger-ui-standalone-preset.js - null null
+2026-04-07 09:24:48.819 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/swagger/swagger-ui-bundle.js - null null
+2026-04-07 09:24:48.861 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-04-07 09:24:48.861 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-04-07 09:24:48.863 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 44.5085ms
+2026-04-07 09:24:48.863 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/swagger/swagger-ui.css - 200 152034 text/css 44.5002ms
+2026-04-07 09:24:48.921 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-04-07 09:24:48.921 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 102.4427ms
+2026-04-07 09:24:49.516 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/swagger/v1/swagger.json - null null
+2026-04-07 09:24:49.660 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 143.8667ms
+2026-04-07 09:24:49.694 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/swagger/favicon-32x32.png - null null
+2026-04-07 09:24:49.694 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-04-07 09:24:49.695 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/swagger/favicon-32x32.png - 200 628 image/png 0.9604ms
+2026-04-07 09:25:00.521 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/api/account - null null
+2026-04-07 09:25:00.526 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-07 09:25:00.529 -03:00 [INF] GET /api/account
+2026-04-07 09:25:00.598 -03:00 [INF] Executing endpoint 'BancoApi.Controllers.AccountController.Get (BancoApi)'
+2026-04-07 09:25:00.622 -03:00 [INF] Route matched with {action = "Get", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BancoApi.Entities.Account]]] Get() on controller BancoApi.Controllers.AccountController (BancoApi).
+2026-04-07 09:25:01.864 -03:00 [INF] Executing action method BancoApi.Controllers.AccountController.Get (BancoApi) - Validation state: "Valid"
+2026-04-07 09:25:03.296 -03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`ClientId`, `c`.`Nome`, `c`.`Numero`, `c`.`Saldo`
+FROM `Contas` AS `c`
+2026-04-07 09:25:03.371 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'BancoApi.Data.AppDBContext'.
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.Byte[]'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySqlConnector.MySqlDataReader.GetFieldValue[T](Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 433
+   at lambda_method13(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.Byte[]'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySqlConnector.MySqlDataReader.GetFieldValue[T](Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 433
+   at lambda_method13(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-07 09:25:03.415 -03:00 [INF] Executed action BancoApi.Controllers.AccountController.Get (BancoApi) in 2788.4923ms
+2026-04-07 09:25:03.417 -03:00 [INF] Executed endpoint 'BancoApi.Controllers.AccountController.Get (BancoApi)'
+2026-04-07 09:25:03.421 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.Byte[]'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySqlConnector.MySqlDataReader.GetFieldValue[T](Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 433
+   at lambda_method13(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at BancoApi.Repositories.AccountRepository.FindAllAsync() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Repositories/AccountRepository.cs:line 19
+   at BancoApi.Services.AccountService.GetAll() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Services/AccountService.cs:line 17
+   at BancoApi.Controllers.AccountController.Get() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Controllers/AccountController.cs:line 23
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ExceptionContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BancoApi.Middlewares.LoggingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Middlewares/LoggingMiddleware.cs:line 22
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-07 09:25:03.467 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/api/account - 500 null text/plain; charset=utf-8 2946.0515ms
+2026-04-07 09:25:27.424 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/api/user - null null
+2026-04-07 09:25:27.426 -03:00 [INF] GET /api/user
+2026-04-07 09:25:27.427 -03:00 [INF] Executing endpoint 'BancoApi.Controllers.UserController.Get (BancoApi)'
+2026-04-07 09:25:27.440 -03:00 [INF] Route matched with {action = "Get", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BancoApi.Entities.User]]] Get() on controller BancoApi.Controllers.UserController (BancoApi).
+2026-04-07 09:25:27.451 -03:00 [INF] Executing action method BancoApi.Controllers.UserController.Get (BancoApi) - Validation state: "Valid"
+2026-04-07 09:25:27.526 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`Name`, `u`.`Password`, `u`.`Role`, `u`.`Status`
+FROM `Users` AS `u`
+2026-04-07 09:25:27.585 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'BancoApi.Data.AppDBContext'.
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at MySqlConnector.Core.Row.GetString(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 356
+   at MySqlConnector.MySqlDataReader.GetString(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 297
+   at lambda_method31(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at MySqlConnector.Core.Row.GetString(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 356
+   at MySqlConnector.MySqlDataReader.GetString(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 297
+   at lambda_method31(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-07 09:25:27.587 -03:00 [INF] Executed action BancoApi.Controllers.UserController.Get (BancoApi) in 145.5461ms
+2026-04-07 09:25:27.587 -03:00 [INF] Executed endpoint 'BancoApi.Controllers.UserController.Get (BancoApi)'
+2026-04-07 09:25:27.588 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at MySqlConnector.Core.Row.GetString(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 356
+   at MySqlConnector.MySqlDataReader.GetString(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 297
+   at lambda_method31(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at BancoApi.Repositories.UserRepository.FindAllAsync() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Repositories/UserRepository.cs:line 18
+   at BancoApi.Services.UserService.GetAll() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Services/UserService.cs:line 21
+   at BancoApi.Controllers.UserController.Get() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Controllers/UserController.cs:line 21
+   at lambda_method24(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ExceptionContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BancoApi.Middlewares.LoggingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Middlewares/LoggingMiddleware.cs:line 22
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-07 09:25:27.591 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/api/user - 500 null text/plain; charset=utf-8 167.1987ms
+2026-04-07 09:28:01.451 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5209/api/user - application/json 157
+2026-04-07 09:28:01.484 -03:00 [INF] POST /api/user
+2026-04-07 09:28:01.485 -03:00 [INF] Executing endpoint 'BancoApi.Controllers.UserController.Post (BancoApi)'
+2026-04-07 09:28:01.493 -03:00 [INF] Route matched with {action = "Post", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BancoApi.Entities.User]] Post(BancoApi.Entities.User) on controller BancoApi.Controllers.UserController (BancoApi).
+2026-04-07 09:28:01.592 -03:00 [INF] Executing action method BancoApi.Controllers.UserController.Post (BancoApi) - Validation state: "Valid"
+2026-04-07 09:28:01.719 -03:00 [INF] Executed DbCommand (28ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`Name`, `u`.`Password`, `u`.`Role`, `u`.`Status`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2026-04-07 09:28:02.026 -03:00 [INF] Executed DbCommand (39ms) [Parameters=[@p0='?' (Size = 16) (DbType = Binary), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Users` (`Id`, `Email`, `Name`, `Password`, `Role`, `Status`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-04-07 09:28:02.047 -03:00 [INF] Executed action method BancoApi.Controllers.UserController.Post (BancoApi), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 450.0962ms.
+2026-04-07 09:28:02.053 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'BancoApi.Entities.User'.
+2026-04-07 09:28:02.094 -03:00 [INF] Executed action BancoApi.Controllers.UserController.Post (BancoApi) in 601.3611ms
+2026-04-07 09:28:02.094 -03:00 [INF] Executed endpoint 'BancoApi.Controllers.UserController.Post (BancoApi)'
+2026-04-07 09:28:02.095 -03:00 [INF] ← 201 POST /api/user [610ms]
+2026-04-07 09:28:02.095 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5209/api/user - 201 null application/json; charset=utf-8 643.7939ms
+2026-04-07 09:34:22.115 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5209/api/user - null null
+2026-04-07 09:34:22.115 -03:00 [INF] GET /api/user
+2026-04-07 09:34:22.116 -03:00 [INF] Executing endpoint 'BancoApi.Controllers.UserController.Get (BancoApi)'
+2026-04-07 09:34:22.116 -03:00 [INF] Route matched with {action = "Get", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[BancoApi.Entities.User]]] Get() on controller BancoApi.Controllers.UserController (BancoApi).
+2026-04-07 09:34:22.217 -03:00 [INF] Executing action method BancoApi.Controllers.UserController.Get (BancoApi) - Validation state: "Valid"
+2026-04-07 09:34:22.224 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`Email`, `u`.`Name`, `u`.`Password`, `u`.`Role`, `u`.`Status`
+FROM `Users` AS `u`
+2026-04-07 09:34:22.225 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'BancoApi.Data.AppDBContext'.
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at MySqlConnector.Core.Row.GetString(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 356
+   at MySqlConnector.MySqlDataReader.GetString(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 297
+   at lambda_method31(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at MySqlConnector.Core.Row.GetString(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 356
+   at MySqlConnector.MySqlDataReader.GetString(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 297
+   at lambda_method31(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-07 09:34:22.226 -03:00 [INF] Executed action BancoApi.Controllers.UserController.Get (BancoApi) in 109.7368ms
+2026-04-07 09:34:22.226 -03:00 [INF] Executed endpoint 'BancoApi.Controllers.UserController.Get (BancoApi)'
+2026-04-07 09:34:22.226 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+   at MySqlConnector.Core.Row.GetString(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 356
+   at MySqlConnector.MySqlDataReader.GetString(Int32 ordinal) in /_/src/MySqlConnector/MySqlDataReader.cs:line 297
+   at lambda_method31(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at BancoApi.Repositories.UserRepository.FindAllAsync() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Repositories/UserRepository.cs:line 18
+   at BancoApi.Services.UserService.GetAll() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Services/UserService.cs:line 21
+   at BancoApi.Controllers.UserController.Get() in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Controllers/UserController.cs:line 21
+   at lambda_method24(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ExceptionContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BancoApi.Middlewares.LoggingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /home/vanessa/Imagens/aulas_raissa/Api/BancoApi/BancoApi/Middlewares/LoggingMiddleware.cs:line 22
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-07 09:34:22.234 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5209/api/user - 500 null text/plain; charset=utf-8 119.1504ms

@@ -2,14 +2,20 @@ using System.Text;
 using BancoApi.Data;
 using BancoApi.Entities;
 using BancoApi.Filters;
+using BancoApi.Middlewares;
 using BancoApi.Repositories;
 using BancoApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration().MinimumLevel.Information().WriteTo.Console().WriteTo.File(
+    "logs/app-banco",
+    rollingInterval: RollingInterval.Day).CreateLogger();
 
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
@@ -54,6 +60,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers(options =>
     options.Filters.Add<DomainExceptionFilter>());
+
+builder.Host.UseSerilog();
+
+builder.Services.AddTransient<LoggingMiddleware>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -64,6 +74,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<LoggingMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
